@@ -14,8 +14,6 @@ An out-of-box UI solution for enterprise applications as a Vue boilerplate. base
 
 </div>
 
-- 预览: https://preview.pro.loacg.com
-- 首页: https://pro.loacg.com
 - 文档: https://pro.loacg.com/docs/getting-started
 - 更新日志: https://pro.loacg.com/docs/changelog
 - 常见问题: https://pro.loacg.com/docs/faq
@@ -67,22 +65,22 @@ cd ant-design-pro-vue
 
 - 安装依赖
 ```
-yarn install
+yarn install || npm i
 ```
 
 - 开发模式运行
 ```
-yarn run serve
+yarn run serve || npm run serve 
 ```
 
 - 编译项目
 ```
-yarn run build
+yarn run build || npm run build 
 ```
 
 - Lints and fixes files
 ```
-yarn run lint
+yarn run lint || npm run lint 
 ```
 
 

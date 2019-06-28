@@ -22,8 +22,9 @@ export default {
   mounted () {
 		console.log('this.$i18n.locale----')
 		console.log(this.$i18n.locale)
-		this.$i18n.locale = 'en-US'
-		console.log(this.$i18n.locale)
+		
+		// this.$i18n.locale = 'en-US'  //更改语言
+
 		console.log('this.$i18n.locale----')
   }
 }
