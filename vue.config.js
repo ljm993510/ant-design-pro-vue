@@ -10,7 +10,7 @@ function resolve (dir) {
 // vue.config.js
 module.exports = {
 	// publicPath:'./',
-	assetsDir:'/',
+	// assetsDir:'/',
   configureWebpack: {
     plugins: [
       // Ignore all locale files of moment.js
@@ -98,7 +98,6 @@ module.exports = {
 				warnings: false,
 				errors: false
     },
-    // lintOnSave: false,
     // development server port 8000
     port: 8000
     // proxy: {
@@ -113,7 +112,7 @@ module.exports = {
 
   // disable source map in production
   productionSourceMap: false,
-  lintOnSave: undefined,
+  lintOnSave: false,
   // babel-loader no-ignore node_modules/*
   transpileDependencies: []
 }
