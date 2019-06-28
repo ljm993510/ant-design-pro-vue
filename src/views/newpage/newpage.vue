@@ -7,6 +7,10 @@
                       @focus="onEditorFocus($event)"
                       @ready="onEditorReady($event)">
         </quill-editor>
+				<div>
+					222
+					<span>{{$t('title.message')}}</span>
+				</div>
     </div>
 </template>
 

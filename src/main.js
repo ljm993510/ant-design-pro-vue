@@ -15,14 +15,20 @@ import './core/use'
 import './permission' // permission control
 import './utils/filter' // global filter
 
+// 国际化
+import i18n from './lang/index.js'
+
+
 Vue.config.productionTip = false
 
 // mount axios Vue.$http and this.$http
 Vue.use(VueAxios)
 
+
 new Vue({
   router,
   store,
+  i18n,
   created () {
     bootstrap()
   },
