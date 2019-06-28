@@ -17,24 +17,28 @@ export const asyncRouterMap = [
         name: 'dashboard',
         redirect: '/dashboard/workplace',
         component: RouteView,
-        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
+        meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ]},
+		// hideChildrenInMenu:true,
         children: [
           {
             path: '/dashboard/analysis',
             name: 'Analysis',
             component: () => import('@/views/dashboard/Analysis'),
+			hidden:false,
             meta: { title: '分析页', keepAlive: false, permission: [ 'dashboard' ] }
           },
           // 外部链接
           {
             path: 'https://www.baidu.com/',
             name: 'Monitor',
+			hidden:false,
             meta: { title: '监控页（外部）', target: '_blank' }
           },
           {
             path: '/dashboard/workplace',
             name: 'Workplace',
             component: () => import('@/views/dashboard/Workplace'),
+			hidden:false,
             meta: { title: '工作台', keepAlive: true, permission: [ 'dashboard' ] }
           }
         ]
@@ -316,7 +320,14 @@ export const asyncRouterMap = [
             ]
           }
         ]
-      }
+      },
+	   // newpage
+	  {
+	    path: '/newpage',
+	    name: 'newpage',
+	    component: () => import('@/views/newpage/newpage'),
+	    meta: { title: '新增页面', icon: 'check-circle-o', permission: [ 'result' ] },
+	  },
     ]
   },
   {
