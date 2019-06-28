@@ -9,8 +9,8 @@ function resolve (dir) {
 
 // vue.config.js
 module.exports = {
-	publicPath:'./',
-	assetsDir:'',
+	// publicPath:'./',
+	assetsDir:'/',
   configureWebpack: {
     plugins: [
       // Ignore all locale files of moment.js
@@ -94,6 +94,11 @@ module.exports = {
   },
 
   devServer: {
+		overlay: {
+				warnings: false,
+				errors: false
+    },
+    // lintOnSave: false,
     // development server port 8000
     port: 8000
     // proxy: {
