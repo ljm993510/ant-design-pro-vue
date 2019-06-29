@@ -46,6 +46,7 @@ const err = (error) => {
 service.interceptors.request.use(config => {
   const token = Vue.ls.get(ACCESS_TOKEN)
   if (token) {
+		console.log(token,'token')
     config.headers['Access-Token'] = token // 让每个请求携带自定义 token 请根据实际情况自行修改
   }
   return config
@@ -53,6 +54,8 @@ service.interceptors.request.use(config => {
 
 // response interceptor
 service.interceptors.response.use((response) => {
+	console.log('response:')
+	console.log(response)
   return response.data
 }, err)
 
