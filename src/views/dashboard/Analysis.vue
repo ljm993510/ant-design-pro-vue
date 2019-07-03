@@ -1,5 +1,9 @@
 <template>
   <div class="page-header-index-wide">
+		<a-row type="flex" justify="center" align="top">
+			<a-skeleton :loading="loading" active></a-skeleton>
+			<Ebar v-show='!loading' ref='myEchart'></Ebar>
+    </a-row>
     <a-row :gutter="24">
       <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
         <chart-card :loading="loading" title="总销售额" total="￥126,560">
@@ -213,7 +217,7 @@
 
 <script>
 import moment from 'moment'
-import { ChartCard, MiniArea, MiniBar, MiniProgress, RankList, Bar, Trend, NumberInfo, MiniSmoothArea } from '@/components'
+import { ChartCard, MiniArea, MiniBar, MiniProgress, RankList, Bar, Trend, NumberInfo, MiniSmoothArea,Ebar} from '@/components'
 import { mixinDevice } from '@/utils/mixin'
 
 const barData = []
@@ -325,12 +329,14 @@ export default {
     MiniProgress,
     RankList,
     Bar,
+		Ebar,
     Trend,
     NumberInfo,
     MiniSmoothArea
   },
   data () {
     return {
+			chart:null,
       loading: true,
       rankList,
 
@@ -357,7 +363,56 @@ export default {
     setTimeout(() => {
       this.loading = !this.loading
     }, 1000)
-  }
+  },
+	mounted () {
+    this.initChart();
+  },
+  beforeDestroy() {
+    if (!this.chart) {
+      return
+    }
+    this.chart.dispose();
+    this.chart = null;
+  },
+  methods: {
+    initChart() {
+		console.log(this.$refs.myEchart)
+      this.chart = this.$echarts.init(document.getElementById(this.$refs.myEchart.id));
+
+      // 把配置和数据放这里
+      this.chart.setOption({
+        color: ['#3398DB'],
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [{
+          type: 'category',
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          axisTick: {
+            alignWithLabel: true
+          }
+        }],
+        yAxis: [{
+          type: 'value'
+        }],
+        series: [{
+          name: '直接访问',
+          type: 'bar',
+          barWidth: '60%',
+          data: [10, 52, 200, 334, 390, 330, 220]
+        }]
+      })
+    }
+  },
 }
 </script>
 

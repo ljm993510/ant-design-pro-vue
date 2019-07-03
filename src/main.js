@@ -17,7 +17,9 @@ import './utils/filter' // global filter
 
 // 国际化
 import i18n from './lang/index.js'
-
+// echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts;
 
 Vue.config.productionTip = false
 

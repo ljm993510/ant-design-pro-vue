@@ -8,8 +8,11 @@
                       @ready="onEditorReady($event)">
         </quill-editor>
 				<div>
-					222
-					<span>{{$t('title.message')}}</span>
+					
+				<a-row type="flex" justify="center">
+					<a-col :span="12" class='jqItem'>title.home:{{$t('title.home')}}</a-col>
+					<a-col :span="12">title.message:{{$t('title.message')}}</a-col>
+				</a-row>
 				</div>
     </div>
 </template>
@@ -54,8 +57,12 @@ export default {
   },
   mounted() {
     // you can use current editor object to do something(editor methods)
+		// this.editor to do something...
     console.log('this is my editor', this.editor)
-    // this.editor to do something...
+		
+		console.log($)
+		$('.jqItem').css('color','red')
+    
   }
 }
 </script>

@@ -1,8 +1,7 @@
 module.exports = {
   title: {
     home: 'home',
-    message: 'message',
-    code: 'code'
+    message: 'message'
   }
 }
 

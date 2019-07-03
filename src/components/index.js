@@ -1,3 +1,5 @@
+// Echart
+import Ebar from '@/components/Echarts/Bar'
 // chart
 import Bar from '@/components/Charts/Bar'
 import ChartCard from '@/components/Charts/ChartCard'
@@ -30,8 +32,11 @@ import StandardFormRow from '@/components/StandardFormRow'
 import ArticleListContent from '@/components/ArticleListContent'
 
 export {
+	
   AvatarList,
   Bar,
+    Ebar,
+
   ChartCard,
   Liquid,
   MiniArea,

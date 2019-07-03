@@ -38,7 +38,14 @@ module.exports = {
               return selector
           }
         }
+      }),
+	  // 引入jq
+	  new webpack.ProvidePlugin({
+        $:"jquery",
+        jQuery:"jquery",
+        "windows.jQuery":"jquery"
       })
+	  
     ]
   },
 
